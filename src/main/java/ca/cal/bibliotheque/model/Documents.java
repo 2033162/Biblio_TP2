@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -25,19 +27,25 @@ public class Documents {
     private int anneePublication;
 
     @ManyToOne
-    @JoinColumn(name = "titre")
+    @JoinColumn(name = "cd")
     @ToString.Exclude
     private CD cd;
 
     @ManyToOne
-    @JoinColumn(name = "titre")
+    @JoinColumn(name = "dvd")
     @ToString.Exclude
     private DVD dvd;
 
     @ManyToOne
-    @JoinColumn(name = "titre")
+    @JoinColumn(name = "livre")
     @ToString.Exclude
     private Livre livre;
+
+    @OneToMany(mappedBy = "document")
+    List<Reservation> reservations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "document")
+    List<EmpruntDocuments> empruntDocuments = new ArrayList<>();
 
     public Documents(long id, EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication) {
         this.id = id;

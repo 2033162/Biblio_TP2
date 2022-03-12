@@ -3,12 +3,11 @@ package ca.cal.bibliotheque.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -25,6 +24,12 @@ public class Clients {
     private String numeroTelephone;
     private Date dateInscription;
     private int nbrEmpruntEnCour;
+
+    @OneToMany(mappedBy = "client")
+    List<Reservation> reservations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client")
+    List<EmpruntDocuments> empruntDocuments = new ArrayList<>();
 
     public Clients(long id, String nom, String prenom, String rue, String ville, String codePostal, String numeroTelephone, Date dateInscription, int nbrEmpruntEnCour) {
         this.id = id;

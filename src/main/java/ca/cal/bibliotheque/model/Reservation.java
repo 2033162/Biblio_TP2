@@ -2,11 +2,9 @@ package ca.cal.bibliotheque.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -18,7 +16,15 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private Date dateReservation;
+
+    @ManyToOne
+    @JoinColumn(name = "client")
+    @ToString.Exclude
     private Clients client;
+
+    @ManyToOne
+    @JoinColumn(name = "document")
+    @ToString.Exclude
     private Documents document;
 
     public Reservation(long id, Date dateReservation, Clients client, Documents document) {

@@ -2,11 +2,9 @@ package ca.cal.bibliotheque.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -20,7 +18,15 @@ public class EmpruntDocuments {
     private Date dateInitial;
     private Date dateExpire;
     private int nbrRappel;
+
+    @ManyToOne
+    @JoinColumn(name = "client")
+    @ToString.Exclude
     private Clients client;
+
+    @ManyToOne
+    @JoinColumn(name = "document")
+    @ToString.Exclude
     private Documents document;
 
     public EmpruntDocuments(long id, Date dateInitial, Date dateExpire, int nbrRappel, Clients client, Documents document) {
