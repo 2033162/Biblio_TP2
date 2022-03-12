@@ -31,6 +31,14 @@ public class CD extends Documents {
         this.interprete = interprete;
     }
 
+    public CD(Documents documents, CD cd) {
+        super(documents);
+        this.id = documents.getId();
+        this.genreMusique = cd.getGenreMusique();
+        this.compositeur = cd.getCompositeur();
+        this.interprete = cd.getInterprete();
+    }
+
     public long getId() {
         return id;
     }

@@ -28,6 +28,13 @@ public class Livre extends Documents {
         this.genreLivre = genreLivre;
     }
 
+    public Livre(Documents documents, Livre livres) {
+        super(documents);
+        this.id = documents.getId();
+        this.nbrPages = livres.getNbrPages();
+        this.genreLivre = livres.getGenreLivre();
+    }
+
     @Override
     public long getId() {
         return id;

@@ -27,6 +27,13 @@ public class DVD extends Documents {
         this.genreFilm = genreFilm;
     }
 
+    public DVD(Documents documents, DVD dvd) {
+        super(documents);
+        this.id = documents.getId();
+        this.duree = dvd.getDuree();
+        this.genreFilm = dvd.getGenreFilm();
+    }
+
     @Override
     public long getId() {
         return id;
