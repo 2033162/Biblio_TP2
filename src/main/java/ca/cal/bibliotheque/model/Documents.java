@@ -1,17 +1,43 @@
 package ca.cal.bibliotheque.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.*;
+
+@Entity
+@Data
+@NoArgsConstructor
 public class Documents {
-    private final long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     public static final String C_LIVRE = "livre";
     public static final String C_CD = "CD";
     public static final String C_DVD = "DVD";
 
-    private final String genreDocument;
+    private String genreDocument;
     private EtatDocument etatDocument;
     private String titre;
     private String auteur;
     private String editeur;
     private int anneePublication;
+
+    @ManyToOne
+    @JoinColumn(name = "titre")
+    @ToString.Exclude
+    private CD cd;
+
+    @ManyToOne
+    @JoinColumn(name = "titre")
+    @ToString.Exclude
+    private DVD dvd;
+
+    @ManyToOne
+    @JoinColumn(name = "titre")
+    @ToString.Exclude
+    private Livre livre;
 
     public Documents(long id, EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication) {
         this.id = id;

@@ -1,9 +1,24 @@
 package ca.cal.bibliotheque.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Data
+@NoArgsConstructor
 public class DVD extends Documents {
-    private final long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private int duree;
     private String genreFilm;
+
+    @OneToMany(mappedBy = "dvd")
+    List<Documents> documents = new ArrayList<>();
 
     public DVD(Documents documents, int duree, String genreFilm) {
         super(documents);

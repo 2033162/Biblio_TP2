@@ -1,9 +1,25 @@
 package ca.cal.bibliotheque.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Data
+@NoArgsConstructor
 public class Livre extends Documents {
-    private final long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     private int nbrPages;
     private GenreLivre genreLivre;
+
+    @OneToMany(mappedBy = "livre")
+    List<Documents> documents = new ArrayList<>();
 
     public Livre(Documents documents, int nbrPages, GenreLivre genreLivre) {
         super(documents);

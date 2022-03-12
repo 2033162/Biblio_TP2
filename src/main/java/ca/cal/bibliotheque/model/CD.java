@@ -1,10 +1,27 @@
 package ca.cal.bibliotheque.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Data
+@NoArgsConstructor
 public class CD extends Documents {
-    private final long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     private String genreMusique;
     private String compositeur;
     private String interprete;
+
+    @OneToMany(mappedBy = "cd")
+    List<Documents> documents = new ArrayList<>();
 
     public CD(Documents documents, String genreMusique, String compositeur, String interprete) {
         super(documents);

@@ -1,15 +1,27 @@
 package ca.cal.bibliotheque.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Entity
+@Data
+@NoArgsConstructor
 public class EmpruntDocuments {
-    private final long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private Date dateInitial;
     private Date dateExpire;
     private int nbrRappel;
-    private final Clients client;
-    private final Documents document;
+    private Clients client;
+    private Documents document;
 
     public EmpruntDocuments(long id, Date dateInitial, Date dateExpire, int nbrRappel, Clients client, Documents document) {
         this.id = id;
