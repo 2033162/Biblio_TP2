@@ -5,6 +5,7 @@ import ca.cal.bibliotheque.persistance.DB.JDBCCreateDB;
 import ca.cal.bibliotheque.persistance.JPA.ClientsDaoJPAH2;
 import ca.cal.bibliotheque.persistance.JPA.DocumentsDaoJPAH2;
 import ca.cal.bibliotheque.persistance.JPA.EmployeDaoJPAH2;
+import ca.cal.bibliotheque.persistance.JPA.ReservationDaoJPAh2;
 import ca.cal.bibliotheque.service.*;
 
 import java.text.DateFormatSymbols;
@@ -22,6 +23,7 @@ public class MainBibliotheque {
         ServiceDocument serviceDocument = new ServiceDocument(new DocumentsDaoJPAH2());
         ServiceEmploye serviceEmploye = new ServiceEmploye(new EmployeDaoJPAH2());
         ServiceClient serviceClient = new ServiceClient(new ClientsDaoJPAH2());
+        ServiceReservation serviceReservation = new ServiceReservation(new ReservationDaoJPAh2());
         /*ServiceClient serviceClient = new ServiceClient();
         ServiceCD serviceCD = new ServiceCD();
         ServiceDVD serviceDVD = new ServiceDVD();
@@ -91,6 +93,14 @@ public class MainBibliotheque {
         serviceClient.createClient(client);
         var client2 = serviceClient.getClient(client.getId());
         System.out.println(client2);
+
+        var reservation = new Reservation(
+                new SimpleDateFormat("dd/MM/yyyy").parse("05/10/2000"),
+                client,
+                livre);
+        serviceReservation.createReservation(reservation);
+        var reservation2 = serviceReservation.getReservation(reservation.getId());
+        System.out.println(reservation2);
 
         /*var idClient = 1L;
         var idCD = 1L;

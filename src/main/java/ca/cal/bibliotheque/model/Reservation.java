@@ -27,15 +27,10 @@ public class Reservation {
     @ToString.Exclude
     private Documents document;
 
-    public Reservation(long id, Date dateReservation, Clients client, Documents document) {
-        this.id = id;
+    public Reservation(Date dateReservation, Clients client, Documents document) {
         this.dateReservation = dateReservation;
         this.client = client;
         this.document = document;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public Clients getClient() {
