@@ -27,6 +27,17 @@ public class ReservationDaoJPAh2 implements ReservationDao {
     }
 
     @Override
+    public void updateReservation(Reservation reservation) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        em.merge(reservation);
+
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    @Override
     public Reservation getReservation(long reservationId) {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();

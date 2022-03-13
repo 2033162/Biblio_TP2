@@ -135,6 +135,13 @@ public class MainBibliotheque {
         var reservation2 = serviceReservation.getReservation(reservation.getId());
         System.out.println(reservation2);
 
+        reservation.setDateReservation(new SimpleDateFormat("dd/MM/yyyy").parse("13/03/2022"));
+        serviceReservation.updateReservation(reservation);
+        var reservation3 = serviceReservation.getReservation(reservation.getId());
+        System.out.println(reservation3);
+
+
+
         var empruntDocuments = new EmpruntDocuments(
                 new SimpleDateFormat("dd/MM/yyyy").parse("15/03/2018"),
                 new SimpleDateFormat("dd/MM/yyyy").parse("04/01/2022"),

@@ -18,6 +18,10 @@ public class ServiceReservation {
         return dao.createReservation(reservation);
     }
 
+    public void updateReservation(Reservation reservation) {
+        dao.updateReservation(reservation);
+    }
+
     public Reservation getReservation(long reservationID) {
         return dao.getReservation(reservationID);
     }
