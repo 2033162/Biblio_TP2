@@ -244,9 +244,16 @@ public class MainBibliotheque {
         System.out.println();
 
 
+        System.out.println("\nListe des emprunts du client:");
+        var clientEmprunt = serviceEmpruntDocuments.getClientEmprunt(client.getId());
+        for (EmpruntDocuments empruntDocument: clientEmprunt) {
+            System.out.println(empruntDocument);
+        }
+        System.out.println();
+
+
 
         System.out.println("\nDelete empruntDocument");
-        var clientEmprunt = serviceEmpruntDocuments.getClientEmprunt(client.getId());
         serviceEmpruntDocuments.removeEmpruntDocuments(clientEmprunt.get(0));
         System.out.println(clientEmprunt.get(0));
 
