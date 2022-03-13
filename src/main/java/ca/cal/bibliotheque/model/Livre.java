@@ -10,28 +10,23 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 public class Livre extends Documents {
-    private long id;
-
     private int nbrPages;
     private GenreLivre genreLivre;
 
-    public Livre(Documents documents, int nbrPages, GenreLivre genreLivre) {
-        super(documents);
-        this.id = documents.getId();
+    public Livre(EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication, int nbrPages, GenreLivre genreLivre) {
+        this.setEtatDocument(etatDocument);
+        this.setGenreDocument(genreDocument);
+        this.setTitre(titre);
+        this.setAuteur(auteur);
+        this.setEditeur(editeur);
+        this.setAnneePublication(anneePublication);
         this.nbrPages = nbrPages;
         this.genreLivre = genreLivre;
     }
 
-    public Livre(Documents documents, Livre livres) {
-        super(documents);
-        this.id = documents.getId();
+    public Livre(Livre livres) {
         this.nbrPages = livres.getNbrPages();
         this.genreLivre = livres.getGenreLivre();
-    }
-
-    @Override
-    public long getId() {
-        return id;
     }
 
     public int getNbrPages() {

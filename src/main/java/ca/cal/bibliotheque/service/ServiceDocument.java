@@ -21,8 +21,8 @@ public class ServiceDocument {
         return dao.createDVD(DVD);
     }
 
-    public long createLivre(Documents documents, Livre livres) {
-        return dao.createLivre(documents, livres);
+    public long createLivre(Livre livre) {
+        return dao.createLivre(livre);
     }
 
     public CD getCD(long cdID) {
@@ -31,6 +31,10 @@ public class ServiceDocument {
 
     public DVD getDVD(long dvdID) {
         return dao.getDVD(dvdID);
+    }
+
+    public Livre getLivre(long livreId) {
+        return dao.getLivre(livreId);
     }
 
     /*public List<Documents> rechercheDocument(String genreDocument, EtatDocument etatDocument, String titre, String auteur, String editeur, int anneePublication) {

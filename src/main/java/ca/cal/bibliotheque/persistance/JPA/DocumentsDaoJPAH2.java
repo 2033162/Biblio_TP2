@@ -45,8 +45,7 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
     }
 
     @Override
-    public long createLivre(Documents documents, Livre livres) {
-        final Livre livre = new Livre(documents, livres);
+    public long createLivre(Livre livre) {
         save(livre);
         return livre.getId();
     }
@@ -82,6 +81,17 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
         em.getTransaction().commit();
         em.close();
         return dvd;
+    }
+
+    @Override
+    public Livre getLivre(long livreId) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final Livre livre = em.find(Livre.class, livreId);
+        em.getTransaction().commit();
+        em.close();
+        return livre;
     }
 
     @Override

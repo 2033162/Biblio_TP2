@@ -54,6 +54,19 @@ public class MainBibliotheque {
         var dvd2 = serviceDocument.getDVD(dvd.getId());
         System.out.println(dvd2);
 
+        var livre = new Livre(
+                EtatDocument.EMPRUNTE,
+                Documents.C_LIVRE,
+                "avengers",
+                "Josh whedon",
+                "marvel",
+                2020,
+                230,
+                GenreLivre.ROMAN);
+        serviceDocument.createLivre(livre);
+        var livre2 = serviceDocument.getLivre(livre.getId());
+        System.out.println(livre2);
+
         /*var idClient = 1L;
         var idCD = 1L;
         var idDVD = 2L;
