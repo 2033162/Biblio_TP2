@@ -2,10 +2,7 @@ package ca.cal.bibliotheque;
 
 import ca.cal.bibliotheque.model.*;
 import ca.cal.bibliotheque.persistance.DB.JDBCCreateDB;
-import ca.cal.bibliotheque.persistance.JPA.ClientsDaoJPAH2;
-import ca.cal.bibliotheque.persistance.JPA.DocumentsDaoJPAH2;
-import ca.cal.bibliotheque.persistance.JPA.EmployeDaoJPAH2;
-import ca.cal.bibliotheque.persistance.JPA.ReservationDaoJPAh2;
+import ca.cal.bibliotheque.persistance.JPA.*;
 import ca.cal.bibliotheque.service.*;
 
 import java.text.DateFormatSymbols;
@@ -24,6 +21,7 @@ public class MainBibliotheque {
         ServiceEmploye serviceEmploye = new ServiceEmploye(new EmployeDaoJPAH2());
         ServiceClient serviceClient = new ServiceClient(new ClientsDaoJPAH2());
         ServiceReservation serviceReservation = new ServiceReservation(new ReservationDaoJPAh2());
+        ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments(new EmpruntDocumentsDaoJPAH2());
         /*ServiceClient serviceClient = new ServiceClient();
         ServiceCD serviceCD = new ServiceCD();
         ServiceDVD serviceDVD = new ServiceDVD();
@@ -101,6 +99,16 @@ public class MainBibliotheque {
         serviceReservation.createReservation(reservation);
         var reservation2 = serviceReservation.getReservation(reservation.getId());
         System.out.println(reservation2);
+
+        var empruntDocuments = new EmpruntDocuments(
+                new SimpleDateFormat("dd/MM/yyyy").parse("15/03/2018"),
+                new SimpleDateFormat("dd/MM/yyyy").parse("04/01/2022"),
+                2,
+                client,
+                dvd);
+        serviceEmpruntDocuments.createEmpruntDocuments(empruntDocuments);
+        var empruntDocuments2 = serviceEmpruntDocuments.getEmpruntDocuments(empruntDocuments.getId());
+        System.out.println(empruntDocuments2);
 
         /*var idClient = 1L;
         var idCD = 1L;

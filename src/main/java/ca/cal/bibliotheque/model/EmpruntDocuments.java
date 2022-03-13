@@ -29,17 +29,12 @@ public class EmpruntDocuments {
     @ToString.Exclude
     private Documents document;
 
-    public EmpruntDocuments(long id, Date dateInitial, Date dateExpire, int nbrRappel, Clients client, Documents document) {
-        this.id = id;
+    public EmpruntDocuments(Date dateInitial, Date dateExpire, int nbrRappel, Clients client, Documents document) {
         this.dateInitial = dateInitial;
         this.dateExpire = dateExpire;
         this.nbrRappel = nbrRappel;
         this.client = client;
         this.document = document;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public Clients getClient() {

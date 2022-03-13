@@ -3,13 +3,31 @@ package ca.cal.bibliotheque.service;
 import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.EmpruntDocuments;
+import ca.cal.bibliotheque.model.Reservation;
 import ca.cal.bibliotheque.persistance.CRUD.JDBCEmpruntDocumentsH2;
+import ca.cal.bibliotheque.persistance.JPA.EmpruntDocumentsDao;
+import ca.cal.bibliotheque.persistance.JPA.ReservationDao;
 
 import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ServiceEmpruntDocuments {
+
+    private EmpruntDocumentsDao dao;
+
+    public ServiceEmpruntDocuments(EmpruntDocumentsDao dao) {
+        this.dao = dao;
+    }
+
+    public long createEmpruntDocuments(EmpruntDocuments empruntDocuments) {
+        return dao.createEmpruntDocuments(empruntDocuments);
+    }
+
+    public EmpruntDocuments getEmpruntDocuments(long empruntDocumentsId) {
+        return dao.getEmpruntDocuments(empruntDocumentsId);
+    }
+
     /*public void enregistrer(EmpruntDocuments empruntDocument) {
         new JDBCEmpruntDocumentsH2().enregistrer(empruntDocument);
     }
