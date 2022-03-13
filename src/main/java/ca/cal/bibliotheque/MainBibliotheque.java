@@ -40,6 +40,20 @@ public class MainBibliotheque {
         var cd2 = serviceDocument.getCD(cd.getId());
         System.out.println(cd2);
 
+        var dvd = new DVD(
+                EtatDocument.ENDOMMAGE,
+                Documents.C_DVD,
+                "bobby bob",
+                "lilo lee",
+                "edition bop",
+                2018,
+                44,
+                "drame");
+
+        serviceDocument.createDVD(dvd);
+        var dvd2 = serviceDocument.getDVD(dvd.getId());
+        System.out.println(dvd2);
+
         /*var idClient = 1L;
         var idCD = 1L;
         var idDVD = 2L;

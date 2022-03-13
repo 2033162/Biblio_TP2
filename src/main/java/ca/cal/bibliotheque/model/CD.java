@@ -26,11 +26,11 @@ public class CD extends Documents {
         this.interprete = interprete;
     }
 
-    /*public CD(CD cd) {
+    public CD(CD cd) {
         this.genreMusique = cd.getGenreMusique();
         this.compositeur = cd.getCompositeur();
         this.interprete = cd.getInterprete();
-    }*/
+    }
 
     public String getGenreMusique() {
         return genreMusique;

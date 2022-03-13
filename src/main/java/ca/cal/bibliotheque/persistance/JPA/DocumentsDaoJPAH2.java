@@ -39,8 +39,7 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
     }
 
     @Override
-    public long createDVD(Documents documents, DVD DVD) {
-        final DVD dvd = new DVD(documents, DVD);
+    public long createDVD(DVD dvd) {
         save(dvd);
         return dvd.getId();
     }
@@ -66,10 +65,23 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
 
     public CD getCD(long cdID) {
         final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
 
         final CD cd = em.find(CD.class, cdID);
+        em.getTransaction().commit();
         em.close();
         return cd;
+    }
+
+    @Override
+    public DVD getDVD(long dvdID) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final DVD dvd = em.find(DVD.class, dvdID);
+        em.getTransaction().commit();
+        em.close();
+        return dvd;
     }
 
     @Override

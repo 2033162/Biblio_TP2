@@ -10,27 +10,23 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 public class DVD extends Documents {
-    private long id;
     private int duree;
     private String genreFilm;
 
-    public DVD(Documents documents, int duree, String genreFilm) {
-        super(documents);
-        this.id = documents.getId();
+    public DVD(EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication, int duree, String genreFilm) {
+        this.setEtatDocument(etatDocument);
+        this.setGenreDocument(genreDocument);
+        this.setTitre(titre);
+        this.setAuteur(auteur);
+        this.setEditeur(editeur);
+        this.setAnneePublication(anneePublication);
         this.duree = duree;
         this.genreFilm = genreFilm;
     }
 
-    public DVD(Documents documents, DVD dvd) {
-        super(documents);
-        this.id = documents.getId();
+    public DVD(DVD dvd) {
         this.duree = dvd.getDuree();
         this.genreFilm = dvd.getGenreFilm();
-    }
-
-    @Override
-    public long getId() {
-        return id;
     }
 
     public int getDuree() {
