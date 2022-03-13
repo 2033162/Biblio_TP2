@@ -31,8 +31,7 @@ public class Clients {
     @OneToMany(mappedBy = "client")
     List<EmpruntDocuments> empruntDocuments = new ArrayList<>();
 
-    public Clients(long id, String nom, String prenom, String rue, String ville, String codePostal, String numeroTelephone, Date dateInscription, int nbrEmpruntEnCour) {
-        this.id = id;
+    public Clients(String nom, String prenom, String rue, String ville, String codePostal, String numeroTelephone, Date dateInscription, int nbrEmpruntEnCour) {
         this.nom = nom;
         this.prenom = prenom;
         this.rue = rue;
@@ -41,10 +40,6 @@ public class Clients {
         this.numeroTelephone = numeroTelephone;
         this.dateInscription = dateInscription;
         this.nbrEmpruntEnCour = nbrEmpruntEnCour;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getNom() {

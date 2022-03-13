@@ -1,9 +1,24 @@
 package ca.cal.bibliotheque.service;
 
 import ca.cal.bibliotheque.model.Clients;
-import ca.cal.bibliotheque.persistance.CRUD.JDBCClientH2;
+import ca.cal.bibliotheque.persistance.JPA.ClientsDao;
 
 public class ServiceClient {
+
+    private ClientsDao dao;
+
+    public ServiceClient(ClientsDao dao) {
+        this.dao = dao;
+    }
+
+    public long createClient(Clients client) {
+        return dao.createClients(client);
+    }
+
+    public Clients getClient(long clientId) {
+        return dao.getClient(clientId);
+    }
+
     /*public void enregistrer(Clients clients) {
         new JDBCClientH2().enregistrer(clients);
     }

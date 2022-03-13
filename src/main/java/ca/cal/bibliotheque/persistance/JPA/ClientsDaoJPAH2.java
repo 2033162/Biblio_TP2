@@ -1,12 +1,13 @@
 package ca.cal.bibliotheque.persistance.JPA;
 
+import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Employe;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class EmployeDaoJPAH2 implements EmployeDao {
+public class ClientsDaoJPAH2 implements ClientsDao {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("bibliotheque");
 
     @Override
@@ -21,19 +22,19 @@ public class EmployeDaoJPAH2 implements EmployeDao {
     }
 
     @Override
-    public long createEmploye(Employe employe) {
-        save(employe);
-        return employe.getId();
+    public long createClients(Clients clients) {
+        save(clients);
+        return clients.getId();
     }
 
     @Override
-    public Employe getEmploye(long employeId) {
+    public Clients getClient(long clientId) {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        final Employe employe = em.find(Employe.class, employeId);
+        final Clients client = em.find(Clients.class, clientId);
         em.getTransaction().commit();
         em.close();
-        return employe;
+        return client;
     }
 }
