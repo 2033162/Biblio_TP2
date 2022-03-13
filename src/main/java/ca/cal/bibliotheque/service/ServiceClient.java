@@ -20,6 +20,10 @@ public class ServiceClient {
         dao.updateClients(clients);
     }
 
+    public void removeClient(Clients clients) {
+        dao.removeClients(clients);
+    }
+
     public Clients getClient(long clientId) {
         return dao.getClient(clientId);
     }

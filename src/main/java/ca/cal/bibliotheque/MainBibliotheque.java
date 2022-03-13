@@ -129,6 +129,10 @@ public class MainBibliotheque {
         var client3 = serviceClient.getClient(client.getId());
         System.out.println(client3);
 
+        var client4 = serviceClient.getClient(client.getId());
+        serviceClient.removeClient(client);
+        System.out.println(client4);
+
 
 
         var reservation = new Reservation(

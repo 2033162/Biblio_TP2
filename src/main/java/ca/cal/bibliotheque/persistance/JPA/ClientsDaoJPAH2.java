@@ -39,6 +39,17 @@ public class ClientsDaoJPAH2 implements ClientsDao {
     }
 
     @Override
+    public void removeClients(Clients clients) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        em.remove(clients);
+
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    @Override
     public Clients getClient(long clientId) {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
