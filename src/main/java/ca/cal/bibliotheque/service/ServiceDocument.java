@@ -1,7 +1,6 @@
 package ca.cal.bibliotheque.service;
 
 import ca.cal.bibliotheque.model.*;
-import ca.cal.bibliotheque.persistance.CRUD.JDBCDocumentsH2;
 import ca.cal.bibliotheque.persistance.JPA.DocumentsDao;
 
 import java.util.List;

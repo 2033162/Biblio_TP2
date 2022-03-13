@@ -1,7 +1,6 @@
 package ca.cal.bibliotheque.persistance.JPA;
 
 import ca.cal.bibliotheque.model.Clients;
-import ca.cal.bibliotheque.model.Employe;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
