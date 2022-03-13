@@ -4,10 +4,13 @@ import ca.cal.bibliotheque.model.Reservation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 public class ReservationDaoJPAh2 implements ReservationDao {
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("bibliotheque");
+    private EntityManagerFactory emf;
+
+    public ReservationDaoJPAh2(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
 
     @Override
     public <T> void save(T t) {

@@ -6,7 +6,6 @@ import ca.cal.bibliotheque.model.EmpruntDocuments;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.Calendar;
 import java.util.List;
@@ -14,7 +13,11 @@ import java.util.concurrent.TimeUnit;
 
 public class EmpruntDocumentsDaoJPAH2 implements EmpruntDocumentsDao {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("bibliotheque");
+    private EntityManagerFactory emf;
+
+    public EmpruntDocumentsDaoJPAH2(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
 
     @Override
     public <T> void save(T t) {

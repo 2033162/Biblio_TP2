@@ -4,6 +4,8 @@ import ca.cal.bibliotheque.model.*;
 import ca.cal.bibliotheque.persistance.JPA.*;
 import ca.cal.bibliotheque.service.*;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,13 +14,14 @@ import java.util.List;
 public class MainBibliotheque {
 
     public static void main(String[] args) throws ParseException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("bibliotheque");
 
         //Services
-        ServiceDocument serviceDocument = new ServiceDocument(new DocumentsDaoJPAH2());
-        ServiceEmploye serviceEmploye = new ServiceEmploye(new EmployeDaoJPAH2());
-        ServiceClient serviceClient = new ServiceClient(new ClientsDaoJPAH2());
-        ServiceReservation serviceReservation = new ServiceReservation(new ReservationDaoJPAh2());
-        ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments(new EmpruntDocumentsDaoJPAH2());
+        ServiceDocument serviceDocument = new ServiceDocument(new DocumentsDaoJPAH2(emf));
+        ServiceEmploye serviceEmploye = new ServiceEmploye(new EmployeDaoJPAH2(emf));
+        ServiceClient serviceClient = new ServiceClient(new ClientsDaoJPAH2(emf));
+        ServiceReservation serviceReservation = new ServiceReservation(new ReservationDaoJPAh2(emf));
+        ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments(new EmpruntDocumentsDaoJPAH2(emf));
 
         System.out.println("\nCRUD - CD");
         var cd = new CD(EtatDocument.DISPONIBLE,

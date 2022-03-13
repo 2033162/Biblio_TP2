@@ -4,10 +4,13 @@ import ca.cal.bibliotheque.model.Employe;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 public class EmployeDaoJPAH2 implements EmployeDao {
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("bibliotheque");
+    private EntityManagerFactory emf;
+
+    public EmployeDaoJPAH2(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
 
     @Override
     public <T> void save(T t) {
