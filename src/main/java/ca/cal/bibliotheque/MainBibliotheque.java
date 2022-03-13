@@ -181,6 +181,10 @@ public class MainBibliotheque {
         var empruntDocuments3 = serviceEmpruntDocuments.getEmpruntDocuments(empruntDocuments.getId());
         System.out.println(empruntDocuments3);
 
+        var empruntDocuments4 = serviceEmpruntDocuments.getEmpruntDocuments(empruntDocuments.getId());
+        serviceEmpruntDocuments.removeEmpruntDocuments(empruntDocuments);
+        System.out.println(empruntDocuments4);
+
 
 
         /*var idClient = 1L;

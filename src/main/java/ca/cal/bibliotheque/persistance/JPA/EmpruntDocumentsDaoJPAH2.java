@@ -40,6 +40,17 @@ public class EmpruntDocumentsDaoJPAH2 implements EmpruntDocumentsDao {
     }
 
     @Override
+    public void removeEmpruntDocuments(EmpruntDocuments empruntDocuments) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        em.remove(empruntDocuments);
+
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    @Override
     public EmpruntDocuments getEmpruntDocuments(long empruntDocumentsId) {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();

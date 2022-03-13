@@ -28,6 +28,10 @@ public class ServiceEmpruntDocuments {
         dao.updateEmpruntDocuments(empruntDocuments);
     }
 
+    public void removeEmpruntDocuments(EmpruntDocuments empruntDocuments) {
+        dao.removeEmpruntDocuments(empruntDocuments);
+    }
+
     public EmpruntDocuments getEmpruntDocuments(long empruntDocumentsId) {
         return dao.getEmpruntDocuments(empruntDocumentsId);
     }
