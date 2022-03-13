@@ -24,6 +24,10 @@ public class ServiceEmpruntDocuments {
         return dao.createEmpruntDocuments(empruntDocuments);
     }
 
+    public void updateEmpruntDocuments(EmpruntDocuments empruntDocuments) {
+        dao.updateEmpruntDocuments(empruntDocuments);
+    }
+
     public EmpruntDocuments getEmpruntDocuments(long empruntDocumentsId) {
         return dao.getEmpruntDocuments(empruntDocumentsId);
     }

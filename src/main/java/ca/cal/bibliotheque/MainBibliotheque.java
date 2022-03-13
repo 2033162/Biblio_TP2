@@ -152,6 +152,13 @@ public class MainBibliotheque {
         var empruntDocuments2 = serviceEmpruntDocuments.getEmpruntDocuments(empruntDocuments.getId());
         System.out.println(empruntDocuments2);
 
+        empruntDocuments.setNbrRappel(0);
+        serviceEmpruntDocuments.updateEmpruntDocuments(empruntDocuments);
+        var empruntDocuments3 = serviceEmpruntDocuments.getEmpruntDocuments(empruntDocuments.getId());
+        System.out.println(empruntDocuments3);
+
+
+
         /*var idClient = 1L;
         var idCD = 1L;
         var idDVD = 2L;
