@@ -79,6 +79,13 @@ public class MainBibliotheque {
         var employe2 = serviceEmploye.getEmploye(employe.getId());
         System.out.println(employe2);
 
+        employe.setFonction(Fonction.PREPOSE);
+        serviceEmploye.updateEmploye(employe);
+        var employe3 = serviceEmploye.getEmploye(employe.getId());
+        System.out.println(employe3);
+
+
+
         var client = new Clients(
                 "John",
                 "Smith",

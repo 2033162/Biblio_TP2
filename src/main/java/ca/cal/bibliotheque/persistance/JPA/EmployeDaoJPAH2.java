@@ -27,6 +27,17 @@ public class EmployeDaoJPAH2 implements EmployeDao {
     }
 
     @Override
+    public void updateEmploye(Employe employe) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        em.merge(employe);
+
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    @Override
     public Employe getEmploye(long employeId) {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();

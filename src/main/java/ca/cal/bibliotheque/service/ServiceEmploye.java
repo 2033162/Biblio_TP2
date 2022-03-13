@@ -20,6 +20,10 @@ public class ServiceEmploye {
         return dao.createEmploye(employe);
     }
 
+    public void updateEmploye(Employe employe) {
+        dao.updateEmploye(employe);
+    }
+
     public Employe getEmploye(long employeID) {
         return dao.getEmploye(employeID);
     }
