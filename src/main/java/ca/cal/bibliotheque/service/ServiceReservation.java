@@ -22,6 +22,10 @@ public class ServiceReservation {
         dao.updateReservation(reservation);
     }
 
+    public void removeReservation(Reservation reservation) {
+        dao.removeReservation(reservation);
+    }
+
     public Reservation getReservation(long reservationID) {
         return dao.getReservation(reservationID);
     }

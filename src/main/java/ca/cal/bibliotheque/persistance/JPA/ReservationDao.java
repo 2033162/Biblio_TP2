@@ -7,5 +7,6 @@ public interface ReservationDao {
     <T> void save(T t);
     long createReservation(Reservation reservation);
     void updateReservation(Reservation reservation);
+    void removeReservation(Reservation reservation);
     Reservation getReservation(long reservationId);
 }

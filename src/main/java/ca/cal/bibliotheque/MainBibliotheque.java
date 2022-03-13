@@ -148,6 +148,10 @@ public class MainBibliotheque {
         var reservation3 = serviceReservation.getReservation(reservation.getId());
         System.out.println(reservation3);
 
+        var reservation4 = serviceReservation.getReservation(reservation.getId());
+        serviceReservation.removeReservation(reservation);
+        System.out.println(reservation4);
+
 
 
         var empruntDocuments = new EmpruntDocuments(
