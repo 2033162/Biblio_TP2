@@ -1,6 +1,7 @@
 package ca.cal.bibliotheque.service;
 
 import ca.cal.bibliotheque.model.Clients;
+import ca.cal.bibliotheque.model.Employe;
 import ca.cal.bibliotheque.persistance.JPA.ClientsDao;
 
 public class ServiceClient {
@@ -13,6 +14,10 @@ public class ServiceClient {
 
     public long createClient(Clients client) {
         return dao.createClients(client);
+    }
+
+    public void updateClient(Clients clients) {
+        dao.updateClients(clients);
     }
 
     public Clients getClient(long clientId) {

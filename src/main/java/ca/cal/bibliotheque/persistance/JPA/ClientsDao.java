@@ -5,5 +5,6 @@ import ca.cal.bibliotheque.model.Clients;
 public interface ClientsDao {
     <T> void save(T t);
     long createClients(Clients clients);
+    void updateClients(Clients clients);
     Clients getClient(long clientId);
 }

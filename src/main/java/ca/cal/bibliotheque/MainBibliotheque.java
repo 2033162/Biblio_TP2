@@ -99,6 +99,13 @@ public class MainBibliotheque {
         var client2 = serviceClient.getClient(client.getId());
         System.out.println(client2);
 
+        client.setRue("drolet");
+        serviceClient.updateClient(client);
+        var client3 = serviceClient.getClient(client.getId());
+        System.out.println(client3);
+
+
+
         var reservation = new Reservation(
                 new SimpleDateFormat("dd/MM/yyyy").parse("05/10/2000"),
                 client,
