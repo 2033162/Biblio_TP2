@@ -19,15 +19,10 @@ public class Employe {
     private String prenom;
     private Fonction fonction;
 
-    public Employe(long id, String nom, String prenom, Fonction fonction) {
-        this.id = id;
+    public Employe(String nom, String prenom, Fonction fonction) {
         this.nom = nom;
         this.prenom = prenom;
         this.fonction = fonction;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getNom() {

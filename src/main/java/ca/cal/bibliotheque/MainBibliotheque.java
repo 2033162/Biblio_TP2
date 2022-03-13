@@ -3,6 +3,7 @@ package ca.cal.bibliotheque;
 import ca.cal.bibliotheque.model.*;
 import ca.cal.bibliotheque.persistance.DB.JDBCCreateDB;
 import ca.cal.bibliotheque.persistance.JPA.DocumentsDaoJPAH2;
+import ca.cal.bibliotheque.persistance.JPA.EmployeDaoJPAH2;
 import ca.cal.bibliotheque.service.*;
 
 import java.text.DateFormatSymbols;
@@ -18,6 +19,7 @@ public class MainBibliotheque {
 
 
         ServiceDocument serviceDocument = new ServiceDocument(new DocumentsDaoJPAH2());
+        ServiceEmploye serviceEmploye = new ServiceEmploye(new EmployeDaoJPAH2());
         /*ServiceClient serviceClient = new ServiceClient();
         ServiceCD serviceCD = new ServiceCD();
         ServiceDVD serviceDVD = new ServiceDVD();
@@ -66,6 +68,14 @@ public class MainBibliotheque {
         serviceDocument.createLivre(livre);
         var livre2 = serviceDocument.getLivre(livre.getId());
         System.out.println(livre2);
+
+        var employe = new Employe(
+                "bernadette",
+                "carmier",
+                Fonction.GESTIONNAIRE);
+        serviceEmploye.createEmploye(employe);
+        var employe2 = serviceEmploye.getEmploye(employe.getId());
+        System.out.println(employe2);
 
         /*var idClient = 1L;
         var idCD = 1L;
