@@ -49,6 +49,10 @@ public class MainBibliotheque {
         var cd3 = serviceDocument.getCD(cd.getId());
         System.out.println(cd3);
 
+        var cd4 = serviceDocument.getCD(cd.getId());
+        serviceDocument.removeCD(cd);
+        System.out.println(cd4);
+
 
 
         var dvd = new DVD(
@@ -70,6 +74,10 @@ public class MainBibliotheque {
         var dvd3 = serviceDocument.getDVD(dvd.getId());
         System.out.println(dvd3);
 
+        var dvd4 = serviceDocument.getDVD(dvd.getId());
+        serviceDocument.removeDVD(dvd);
+        System.out.println(dvd4);
+
 
 
         var livre = new Livre(
@@ -89,6 +97,10 @@ public class MainBibliotheque {
         serviceDocument.updateLivre(livre);
         var livre3 = serviceDocument.getLivre(livre.getId());
         System.out.println(livre3);
+
+        var livre4 = serviceDocument.getLivre(livre.getId());
+        serviceDocument.removeLivre(livre);
+        System.out.println(livre4);
 
 
 

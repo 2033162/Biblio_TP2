@@ -37,6 +37,18 @@ public class ServiceDocument {
         dao.updateLivre(livre);
     }
 
+    public void removeCD(CD CD) {
+        dao.removeCD(CD);
+    }
+
+    public void removeDVD(DVD DVD) {
+        dao.removeDVD(DVD);
+    }
+
+    public void removeLivre(Livre livre) {
+        dao.removeLivre(livre);
+    }
+
     public CD getCD(long cdID) {
         return dao.getCD(cdID);
     }

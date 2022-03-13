@@ -32,6 +32,17 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
     }
 
     @Override
+    public <T> void remove(T t) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        em.remove(t);
+
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    @Override
     public long createCD(CD cd) {
         save(cd);
         return cd.getId();
@@ -62,6 +73,21 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
     @Override
     public void updateLivre(Livre livre) {
         update(livre);
+    }
+
+    @Override
+    public void removeCD(CD cd) {
+        remove(cd);
+    }
+
+    @Override
+    public void removeDVD(DVD dvd) {
+        remove(dvd);
+    }
+
+    @Override
+    public void removeLivre(Livre livre) {
+        remove(livre);
     }
 
     public CD getCD(long cdID) {
