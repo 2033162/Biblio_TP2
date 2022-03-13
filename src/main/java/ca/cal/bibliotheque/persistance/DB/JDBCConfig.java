@@ -2,7 +2,7 @@ package ca.cal.bibliotheque.persistance.DB;
 
 public class JDBCConfig {
     private static String JDBC_DRIVER = "org.h2.Driver";
-    private static String DB_URL = "jdbc:h2:~/voyage";
+    private static String DB_URL = "jdbc:h2:~/2033162_tp2";
 
     //  Database credentials
     private static String USER = "sa";

@@ -7,7 +7,7 @@ import ca.cal.bibliotheque.persistance.DB.JDBCException;
 import java.sql.*;
 
 public class JDBCReservationH2 implements JDBCReservation {
-    public void enregistrer(Reservation reservation) {
+    /*public void enregistrer(Reservation reservation) {
         JDBCBibliotheque.enregistrer("INSERT INTO RESERVATION VALUES (" +
                 reservation.getId() +
                 ",'" + reservation.getDateReservationChaine() +
@@ -46,5 +46,5 @@ public class JDBCReservationH2 implements JDBCReservation {
 
     public void suppression(Reservation reservation) {
         JDBCBibliotheque.suppression("RESERVATION", reservation.getId());
-    }
+    }*/
 }

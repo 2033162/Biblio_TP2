@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCEmpruntDocumentsH2 implements JDBCEmpruntDocuments {
-    public void enregistrer(EmpruntDocuments empruntDocuments) {
+    /*public void enregistrer(EmpruntDocuments empruntDocuments) {
         JDBCBibliotheque.enregistrer("INSERT INTO EMPRUNTDOCUMENT VALUES (" +
                 empruntDocuments.getId() +
                 ",'" + empruntDocuments.getDateInitialChaine() +
@@ -118,5 +118,5 @@ public class JDBCEmpruntDocumentsH2 implements JDBCEmpruntDocuments {
             return null;
         }
         return nbrEmpruntParMois;
-    }
+    }*/
 }

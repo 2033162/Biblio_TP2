@@ -8,7 +8,7 @@ import ca.cal.bibliotheque.persistance.DB.JDBCException;
 import java.sql.*;
 
 public class JDBCCDH2 implements JDBCCD {
-    public void enregistrer(CD cd) {
+    /*public void enregistrer(CD cd) {
         new JDBCDocumentsH2().enregistrer(cd.getDocument());
         JDBCBibliotheque.enregistrer("INSERT INTO CD VALUES (" +
                 cd.getId() +
@@ -55,5 +55,5 @@ public class JDBCCDH2 implements JDBCCD {
     public void suppression(CD cd) {
         JDBCBibliotheque.suppression("CD", cd.getId());
         new JDBCDocumentsH2().suppression(cd.getDocument());
-    }
+    }*/
 }

@@ -6,7 +6,7 @@ public interface DocumentsDao {
     <T> void save(T t);
     <T> void merge(T t);
     long createDocument(Documents documents);
-    long createCD(Documents documents, CD CD);
+    long createCD(CD CD);
     long createDVD(Documents documents, DVD DVD);
     long createLivre(Documents documents, Livre livres);
     Clients getClient(long clientId);

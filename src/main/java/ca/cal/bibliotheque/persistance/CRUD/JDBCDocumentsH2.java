@@ -11,7 +11,7 @@ import java.util.List;
 
 public class JDBCDocumentsH2 implements JDBCDocuments {
 
-    public void enregistrer(Documents documents) {
+    /*public void enregistrer(Documents documents) {
         JDBCBibliotheque.enregistrer("INSERT INTO DOCUMENTS VALUES (" +
                 documents.getId() +
                 ",'" + documents.getGenreDocument() +
@@ -114,5 +114,5 @@ public class JDBCDocumentsH2 implements JDBCDocuments {
             return null;
         }
         return listeDocuments;
-    }
+    }*/
 }

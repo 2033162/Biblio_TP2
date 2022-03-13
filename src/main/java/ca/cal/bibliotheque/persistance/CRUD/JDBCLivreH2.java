@@ -9,7 +9,7 @@ import ca.cal.bibliotheque.persistance.DB.JDBCException;
 import java.sql.*;
 
 public class JDBCLivreH2 implements JDBCLivre {
-    public void enregistrer(Livre livre) {
+    /*public void enregistrer(Livre livre) {
         new JDBCDocumentsH2().enregistrer(livre.getDocument());
         JDBCBibliotheque.enregistrer("INSERT INTO LIVRE VALUES (" +
                 livre.getId() +
@@ -53,5 +53,5 @@ public class JDBCLivreH2 implements JDBCLivre {
     public void suppression(Livre livre) {
         JDBCBibliotheque.suppression("LIVRE", livre.getId());
         new JDBCDocumentsH2().suppression(livre.getDocument());
-    }
+    }*/
 }

@@ -4,21 +4,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
+@DiscriminatorValue("DVD")
 @Data
 @NoArgsConstructor
 public class DVD extends Documents {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private int duree;
     private String genreFilm;
-
-    @OneToMany(mappedBy = "dvd")
-    List<Documents> documents = new ArrayList<>();
 
     public DVD(Documents documents, int duree, String genreFilm) {
         super(documents);

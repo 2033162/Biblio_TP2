@@ -2,6 +2,7 @@ package ca.cal.bibliotheque;
 
 import ca.cal.bibliotheque.model.*;
 import ca.cal.bibliotheque.persistance.DB.JDBCCreateDB;
+import ca.cal.bibliotheque.persistance.JPA.DocumentsDaoJPAH2;
 import ca.cal.bibliotheque.service.*;
 
 import java.text.DateFormatSymbols;
@@ -12,19 +13,32 @@ import java.util.List;
 public class MainBibliotheque {
 
     public static void main(String[] args) throws ParseException {
+
         //JDBCCreateDB.createDatabase();
 
 
-        ServiceDocument serviceDocument = new ServiceDocument();
-        ServiceClient serviceClient = new ServiceClient();
+        ServiceDocument serviceDocument = new ServiceDocument(new DocumentsDaoJPAH2());
+        /*ServiceClient serviceClient = new ServiceClient();
         ServiceCD serviceCD = new ServiceCD();
         ServiceDVD serviceDVD = new ServiceDVD();
         ServiceLivre serviceLivre = new ServiceLivre();
         ServiceEmploye serviceEmploye = new ServiceEmploye();
         ServiceReservation serviceReservation = new ServiceReservation();
-        ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments();
+        ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments();*/
 
-        var idClient = 1L;
+        var cd = new CD(EtatDocument.DISPONIBLE,
+                Documents.C_CD,
+                "harry potter",
+                "JK. Rolling",
+                "maison edition",
+                2000,
+                "classique",
+                "JK. Rolling",
+                "michel");
+
+        serviceDocument.createCD(cd);
+
+        /*var idClient = 1L;
         var idCD = 1L;
         var idDVD = 2L;
         var idLivre = 3L;
@@ -241,6 +255,6 @@ public class MainBibliotheque {
 
         var livre4 = serviceLivre.getLivre(idLivre);
         serviceLivre.suppression(livre4);
-        System.out.println(livre4);
+        System.out.println(livre4);*/
     }
 }

@@ -4,7 +4,7 @@ import ca.cal.bibliotheque.model.Reservation;
 import ca.cal.bibliotheque.persistance.CRUD.JDBCReservationH2;
 
 public class ServiceReservation {
-    public void faireReservation(Reservation reservation) {
+    /*public void faireReservation(Reservation reservation) {
         new JDBCReservationH2().enregistrer(reservation);
     }
 
@@ -18,5 +18,5 @@ public class ServiceReservation {
 
     public Reservation getReservation(long reservationId) {
         return new JDBCReservationH2().getReservation(reservationId);
-    }
+    }*/
 }

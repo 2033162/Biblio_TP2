@@ -4,7 +4,7 @@ import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.persistance.CRUD.JDBCClientH2;
 
 public class ServiceClient {
-    public void enregistrer(Clients clients) {
+    /*public void enregistrer(Clients clients) {
         new JDBCClientH2().enregistrer(clients);
     }
 
@@ -18,5 +18,5 @@ public class ServiceClient {
 
     public Clients getClient(long clientId) {
         return new JDBCClientH2().getClients(clientId);
-    }
+    }*/
 }

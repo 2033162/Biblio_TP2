@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class JDBCClientH2 implements JDBCBClient {
 
-    public void enregistrer(Clients clients) {
+    /*public void enregistrer(Clients clients) {
         JDBCBibliotheque.enregistrer("INSERT INTO CLIENTS VALUES (" +
                         clients.getId() +
                         ",'" + clients.getNom() +
@@ -62,5 +62,5 @@ public class JDBCClientH2 implements JDBCBClient {
 
     public void suppression(Clients clients) {
         JDBCBibliotheque.suppression("CLIENTS", clients.getId());
-    }
+    }*/
 }

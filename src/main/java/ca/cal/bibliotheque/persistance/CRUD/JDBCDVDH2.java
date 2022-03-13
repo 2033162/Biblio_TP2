@@ -8,7 +8,7 @@ import ca.cal.bibliotheque.persistance.DB.JDBCException;
 import java.sql.*;
 
 public class JDBCDVDH2 implements JDBCDVD {
-    public void enregistrer(DVD dvd) {
+    /*public void enregistrer(DVD dvd) {
         new JDBCDocumentsH2().enregistrer(dvd.getDocument());
         JDBCBibliotheque.enregistrer("INSERT INTO DVD VALUES (" +
                 dvd.getId() +
@@ -52,5 +52,5 @@ public class JDBCDVDH2 implements JDBCDVD {
     public void suppression(DVD dvd) {
         JDBCBibliotheque.suppression("DVD", dvd.getId());
         new JDBCDocumentsH2().suppression(dvd.getDocument());
-    }
+    }*/
 }

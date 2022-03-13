@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ServiceEmpruntDocuments {
-    public void enregistrer(EmpruntDocuments empruntDocument) {
+    /*public void enregistrer(EmpruntDocuments empruntDocument) {
         new JDBCEmpruntDocumentsH2().enregistrer(empruntDocument);
     }
 
@@ -76,5 +76,5 @@ public class ServiceEmpruntDocuments {
 
     public EmpruntDocuments getEmpruntDocument(long empruntDocumentId) {
         return new JDBCEmpruntDocumentsH2().getEmpruntDocument(empruntDocumentId);
-    }
+    }*/
 }

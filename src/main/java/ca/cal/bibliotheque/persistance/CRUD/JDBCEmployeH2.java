@@ -8,7 +8,7 @@ import ca.cal.bibliotheque.persistance.DB.JDBCException;
 import java.sql.*;
 
 public class JDBCEmployeH2 implements JDBCEmploye {
-    public void enregistrer(Employe employe) {
+    /*public void enregistrer(Employe employe) {
         JDBCBibliotheque.enregistrer("INSERT INTO EMPLOYE VALUES (" +
                 employe.getId() +
                 ",'" + employe.getNom() +
@@ -47,5 +47,5 @@ public class JDBCEmployeH2 implements JDBCEmploye {
 
     public void suppression(Employe employe) {
         JDBCBibliotheque.suppression("EMPLOYE", employe.getId());
-    }
+    }*/
 }

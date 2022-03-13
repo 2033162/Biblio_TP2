@@ -2,16 +2,18 @@ package ca.cal.bibliotheque.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "DOCUMENTS")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "DOCUMENT_TYPE")
 @Data
 @NoArgsConstructor
-public class Documents {
+public abstract class Documents {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -26,29 +28,13 @@ public class Documents {
     private String editeur;
     private int anneePublication;
 
-    @ManyToOne
-    @JoinColumn(name = "cd")
-    @ToString.Exclude
-    private CD cd;
-
-    @ManyToOne
-    @JoinColumn(name = "dvd")
-    @ToString.Exclude
-    private DVD dvd;
-
-    @ManyToOne
-    @JoinColumn(name = "livre")
-    @ToString.Exclude
-    private Livre livre;
-
     @OneToMany(mappedBy = "document")
     List<Reservation> reservations = new ArrayList<>();
 
     @OneToMany(mappedBy = "document")
     List<EmpruntDocuments> empruntDocuments = new ArrayList<>();
 
-    public Documents(long id, EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication) {
-        this.id = id;
+    public Documents(EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication) {
         this.genreDocument = genreDocument;
         this.etatDocument = etatDocument;
         this.titre = titre;

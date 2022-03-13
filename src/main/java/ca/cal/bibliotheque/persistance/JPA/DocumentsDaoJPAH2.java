@@ -34,14 +34,19 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
 
     @Override
     public long createDocument(Documents documents) {
-        final Documents document = new Documents(documents);
+        final Documents document = new Documents() {
+            @Override
+            public long getId() {
+                return super.getId();
+            }
+        };
         save(document);
         return document.getId();
     }
 
     @Override
-    public long createCD(Documents documents, CD CD) {
-        final CD cd = new CD(documents, CD);
+    public long createCD(CD CD) {
+        final CD cd = new CD(CD);
         save(cd);
         return cd.getId();
     }

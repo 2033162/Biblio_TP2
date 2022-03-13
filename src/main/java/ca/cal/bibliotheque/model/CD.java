@@ -2,45 +2,34 @@ package ca.cal.bibliotheque.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
+@DiscriminatorValue("CD")
 @Data
 @NoArgsConstructor
 public class CD extends Documents {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     private String genreMusique;
     private String compositeur;
     private String interprete;
 
-    @OneToMany(mappedBy = "cd")
-    List<Documents> documents = new ArrayList<>();
-
-    public CD(Documents documents, String genreMusique, String compositeur, String interprete) {
-        super(documents);
-        this.id = documents.getId();
+    public CD(EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication, String genreMusique, String compositeur, String interprete) {
+        this.setGenreDocument(genreDocument);
+        this.setEtatDocument(etatDocument);
+        this.setTitre(titre);
+        this.setAuteur(auteur);
+        this.setEditeur(editeur);
+        this.setAnneePublication(anneePublication);
         this.genreMusique = genreMusique;
         this.compositeur = compositeur;
         this.interprete = interprete;
     }
 
-    public CD(Documents documents, CD cd) {
-        super(documents);
-        this.id = documents.getId();
+    public CD(CD cd) {
         this.genreMusique = cd.getGenreMusique();
         this.compositeur = cd.getCompositeur();
         this.interprete = cd.getInterprete();
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getGenreMusique() {
