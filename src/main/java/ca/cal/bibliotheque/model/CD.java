@@ -15,8 +15,8 @@ public class CD extends Documents {
     private String interprete;
 
     public CD(EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication, String genreMusique, String compositeur, String interprete) {
-        this.setGenreDocument(genreDocument);
         this.setEtatDocument(etatDocument);
+        this.setGenreDocument(genreDocument);
         this.setTitre(titre);
         this.setAuteur(auteur);
         this.setEditeur(editeur);
@@ -26,11 +26,11 @@ public class CD extends Documents {
         this.interprete = interprete;
     }
 
-    public CD(CD cd) {
+    /*public CD(CD cd) {
         this.genreMusique = cd.getGenreMusique();
         this.compositeur = cd.getCompositeur();
         this.interprete = cd.getInterprete();
-    }
+    }*/
 
     public String getGenreMusique() {
         return genreMusique;

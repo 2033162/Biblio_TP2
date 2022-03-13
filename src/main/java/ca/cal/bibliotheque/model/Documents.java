@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "DOCUMENTS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "DOCUMENT_TYPE")
+@DiscriminatorColumn(name = "DOCUMENT_TYPE",discriminatorType = DiscriminatorType.STRING)
 @Data
 @NoArgsConstructor
 public abstract class Documents {

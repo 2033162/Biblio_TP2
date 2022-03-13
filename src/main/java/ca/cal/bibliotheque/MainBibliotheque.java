@@ -37,6 +37,8 @@ public class MainBibliotheque {
                 "michel");
 
         serviceDocument.createCD(cd);
+        var cd2 = serviceDocument.getCD(cd.getId());
+        System.out.println(cd2);
 
         /*var idClient = 1L;
         var idCD = 1L;

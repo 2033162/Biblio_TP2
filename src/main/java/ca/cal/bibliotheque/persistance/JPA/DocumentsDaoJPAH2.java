@@ -33,20 +33,7 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
     }
 
     @Override
-    public long createDocument(Documents documents) {
-        final Documents document = new Documents() {
-            @Override
-            public long getId() {
-                return super.getId();
-            }
-        };
-        save(document);
-        return document.getId();
-    }
-
-    @Override
-    public long createCD(CD CD) {
-        final CD cd = new CD(CD);
+    public long createCD(CD cd) {
         save(cd);
         return cd.getId();
     }
@@ -75,6 +62,14 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
         em.getTransaction().commit();
         em.close();
         return client;
+    }
+
+    public CD getCD(long cdID) {
+        final EntityManager em = emf.createEntityManager();
+
+        final CD cd = em.find(CD.class, cdID);
+        em.close();
+        return cd;
     }
 
     @Override

@@ -13,10 +13,6 @@ public class ServiceDocument {
         this.dao = dao;
     }
 
-    public long createDocument(Documents documents) {
-        return dao.createDocument(documents);
-    }
-
     public long createCD(CD CD) {
         return dao.createCD(CD);
     }
@@ -27,6 +23,10 @@ public class ServiceDocument {
 
     public long createLivre(Documents documents, Livre livres) {
         return dao.createLivre(documents, livres);
+    }
+
+    public CD getCD(long cdID) {
+        return dao.getCD(cdID);
     }
 
     /*public List<Documents> rechercheDocument(String genreDocument, EtatDocument etatDocument, String titre, String auteur, String editeur, int anneePublication) {
