@@ -5,6 +5,8 @@ import ca.cal.bibliotheque.model.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DocumentsDaoJPAH2 implements DocumentsDao {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("bibliotheque");
@@ -121,5 +123,43 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
         em.getTransaction().commit();
         em.close();
         return livre;
+    }
+
+    public List<Documents> rechercheDocument(String genreDocument, EtatDocument etatDocument, String titre, String auteur, String editeur, int anneePublication) {
+        String where = "";
+        if (!genreDocument.trim().equals("")) {
+            where += (where.equals("") ? "" : " AND ");
+            where += " (d.genreDocument='" + genreDocument + "')";
+        }
+
+        if (!titre.trim().equals("")) {
+            where += (where.equals("") ? "" : " AND ");
+            where += " (d.titre like '%" + titre + "%')";
+        }
+
+        if (!auteur.trim().equals("")) {
+            where += (where.equals("") ? "" : " AND ");
+            where += " (d.auteur='" + auteur + "')";
+        }
+
+        if (!editeur.trim().equals("")) {
+            where += (where.equals("") ? "" : " AND ");
+            where += " (d.editeur='" + editeur + "')";
+        }
+
+        if (anneePublication != 0) {
+            where += (where.equals("") ? "" : " AND ");
+            where += " (d.anneePublication=" + anneePublication + ")";
+        }
+
+        where =  " WHERE " + where;
+        String query = "select d from Documents d" + where;
+
+        final EntityManager em = emf.createEntityManager();
+
+        List<Documents> documents = em.createQuery(query).getResultList();
+
+        em.close();
+        return documents;
     }
 }

@@ -61,7 +61,7 @@ public class ServiceDocument {
         return dao.getLivre(livreId);
     }
 
-    /*public List<Documents> rechercheDocument(String genreDocument, EtatDocument etatDocument, String titre, String auteur, String editeur, int anneePublication) {
-        return new JDBCDocumentsH2().rechercheDocument(genreDocument, etatDocument, titre, auteur, editeur, anneePublication);
-    }*/
+    public List<Documents> rechercheDocument(String genreDocument, EtatDocument etatDocument, String titre, String auteur, String editeur, int anneePublication) {
+        return dao.rechercheDocument(genreDocument, etatDocument, titre, auteur, editeur, anneePublication);
+    }
 }

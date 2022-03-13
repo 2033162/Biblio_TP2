@@ -9,7 +9,6 @@ import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.logging.Level;
 
 public class MainBibliotheque {
 
@@ -23,13 +22,6 @@ public class MainBibliotheque {
         ServiceClient serviceClient = new ServiceClient(new ClientsDaoJPAH2());
         ServiceReservation serviceReservation = new ServiceReservation(new ReservationDaoJPAh2());
         ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments(new EmpruntDocumentsDaoJPAH2());
-        /*ServiceClient serviceClient = new ServiceClient();
-        ServiceCD serviceCD = new ServiceCD();
-        ServiceDVD serviceDVD = new ServiceDVD();
-        ServiceLivre serviceLivre = new ServiceLivre();
-        ServiceEmploye serviceEmploye = new ServiceEmploye();
-        ServiceReservation serviceReservation = new ServiceReservation();
-        ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments();*/
 
         var cd = new CD(EtatDocument.DISPONIBLE,
                 Documents.C_CD,
@@ -212,6 +204,37 @@ public class MainBibliotheque {
         var client4 = serviceClient.getClient(client.getId());
         serviceClient.removeClient(client);
         System.out.println(client4);
+
+
+
+
+        System.out.println("\nLISTE DOCUMENTS :");
+        List<Documents> listeDocuments = serviceDocument.rechercheDocument("",
+                EtatDocument.ENDOMMAGE,
+                "bob",
+                "",
+                "",
+                0);
+        listeDocuments.forEach((document) -> {
+            System.out.println(document.toStringDocument());
+        });
+        System.out.println();
+
+
+
+        /*serviceEmpruntDocuments.faireEmprunt(client1, document1);
+
+
+
+        System.out.println("\nNOMBRE D'EMPRUNT PAR MOIS :");
+        int[] nbrEmpruntParMois = serviceEmpruntDocuments.getNbrEmpruntParMois();
+        for (int i = 0; i < nbrEmpruntParMois.length; i++) {
+            System.out.println(new DateFormatSymbols().getMonths()[i] + "  " + nbrEmpruntParMois[i]);
+        }
+        System.out.println();*/
+
+
+
 
 
         /*var idClient = 1L;
