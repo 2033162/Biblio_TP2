@@ -3,14 +3,9 @@ package ca.cal.bibliotheque.service;
 import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.EmpruntDocuments;
-import ca.cal.bibliotheque.model.Reservation;
-import ca.cal.bibliotheque.persistance.CRUD.JDBCEmpruntDocumentsH2;
 import ca.cal.bibliotheque.persistance.JPA.EmpruntDocumentsDao;
-import ca.cal.bibliotheque.persistance.JPA.ReservationDao;
 
-import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class ServiceEmpruntDocuments {
 
@@ -36,71 +31,24 @@ public class ServiceEmpruntDocuments {
         return dao.getEmpruntDocuments(empruntDocumentsId);
     }
 
-    /*public void enregistrer(EmpruntDocuments empruntDocument) {
-        new JDBCEmpruntDocumentsH2().enregistrer(empruntDocument);
+    public List<EmpruntDocuments> getClientEmprunt(long clientId) {
+        return dao.getClientEmprunt(clientId);
     }
 
-    public void faireEmprunt(Clients clients, Documents documents) {
-        double amende = 0.25;
-        Calendar today = Calendar.getInstance();
-        today.set(Calendar.HOUR_OF_DAY, 0);
-        List<EmpruntDocuments> empruntDocuments = new JDBCEmpruntDocumentsH2().getClientEmpruntRetard(clients.getId());
-        if (empruntDocuments.size() > 0) {
-            double totalFrais = 0;
-            for(int i = 0; i < empruntDocuments.size(); i++) {
-                EmpruntDocuments empruntDocument = empruntDocuments.get(i);
-                empruntDocument.getDateExpire();
-                long diffInMillies = Math.abs(today.getTime().getTime() - empruntDocument.getDateExpire().getTime());
-                long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-                totalFrais = totalFrais + (amende * diff);
-            };
-            System.out.println("\nEmprunt interdit pour cause des amendes " + totalFrais + "$ \n");
+    public String faireEmprunt(Clients clients, Documents documents) {
+        return dao.faireEmprunt(clients, documents);
+    }
+
+    public Long[] getNbrEmpruntParMois() {
+
+        List<Object[]> empruntParMois = dao.getNbrEmpruntParMois();
+
+        Long[] nbrEmpruntParMois = new Long[] {0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L};
+        for(int i = 0; i < empruntParMois.size(); i++) {
+            Object[] empruntMois = empruntParMois.get(i);
+            nbrEmpruntParMois[(int)empruntMois[0] - 1] = (Long)empruntMois[1];
         }
-        else {
-            double tarifEmprunt;
-            int periodeEmprunt;
-            if (clients.getVille().equalsIgnoreCase("JavaTown")) {
-                //les résidents de Javatown, peuvent emprunter gratuitement
-                tarifEmprunt = 0;
-            } else {
-                tarifEmprunt = 1;
-            }
-            if (documents.getGenreDocument().equalsIgnoreCase(Documents.C_LIVRE)) {
-                periodeEmprunt = 3;
-            } else if (documents.getGenreDocument().equalsIgnoreCase(Documents.C_CD)) {
-                periodeEmprunt = 2;
-            } else {
-                //DVD
-                periodeEmprunt = 1;
-            }
 
-            Calendar dateExpire = today;
-            dateExpire.add(Calendar.WEEK_OF_YEAR, periodeEmprunt);
-
-            long idEmpruntDocument = new JDBCEmpruntDocumentsH2().getMaxId() + 1;
-            var empruntDocument = new EmpruntDocuments(idEmpruntDocument,
-                    today.getTime(),
-                    dateExpire.getTime(),
-                    2,
-                    clients,
-                    documents);
-            enregistrer(empruntDocument);
-        }
+        return nbrEmpruntParMois;
     }
-
-    public int[] getNbrEmpruntParMois() {
-        return new JDBCEmpruntDocumentsH2().getNbrEmpruntParMois();
-    }
-
-    public void modification(EmpruntDocuments empruntDocument) {
-        new JDBCEmpruntDocumentsH2().modification(empruntDocument);
-    }
-
-    public void suppression(EmpruntDocuments empruntDocument) {
-        new JDBCEmpruntDocumentsH2().suppression(empruntDocument);
-    }
-
-    public EmpruntDocuments getEmpruntDocument(long empruntDocumentId) {
-        return new JDBCEmpruntDocumentsH2().getEmpruntDocument(empruntDocumentId);
-    }*/
 }

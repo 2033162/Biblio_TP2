@@ -1,11 +1,5 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.Reservation;
-import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
-import ca.cal.bibliotheque.persistance.DB.JDBCException;
-
-import java.sql.*;
-
 public class JDBCReservationH2 implements JDBCReservation {
     /*public void enregistrer(Reservation reservation) {
         JDBCBibliotheque.enregistrer("INSERT INTO RESERVATION VALUES (" +

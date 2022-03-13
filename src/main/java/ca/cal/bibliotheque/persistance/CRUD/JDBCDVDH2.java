@@ -1,12 +1,5 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.DVD;
-import ca.cal.bibliotheque.model.Documents;
-import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
-import ca.cal.bibliotheque.persistance.DB.JDBCException;
-
-import java.sql.*;
-
 public class JDBCDVDH2 implements JDBCDVD {
     /*public void enregistrer(DVD dvd) {
         new JDBCDocumentsH2().enregistrer(dvd.getDocument());

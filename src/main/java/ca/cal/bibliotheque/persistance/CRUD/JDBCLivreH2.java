@@ -1,13 +1,5 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.Documents;
-import ca.cal.bibliotheque.model.GenreLivre;
-import ca.cal.bibliotheque.model.Livre;
-import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
-import ca.cal.bibliotheque.persistance.DB.JDBCException;
-
-import java.sql.*;
-
 public class JDBCLivreH2 implements JDBCLivre {
     /*public void enregistrer(Livre livre) {
         new JDBCDocumentsH2().enregistrer(livre.getDocument());

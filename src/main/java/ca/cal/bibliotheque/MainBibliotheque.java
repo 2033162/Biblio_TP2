@@ -201,11 +201,6 @@ public class MainBibliotheque {
         System.out.println(empruntDocuments4);
 
 
-        var client4 = serviceClient.getClient(client.getId());
-        serviceClient.removeClient(client);
-        System.out.println(client4);
-
-
 
 
         System.out.println("\nLISTE DOCUMENTS :");
@@ -222,16 +217,27 @@ public class MainBibliotheque {
 
 
 
-        /*serviceEmpruntDocuments.faireEmprunt(client1, document1);
+        System.out.println(serviceEmpruntDocuments.faireEmprunt(client, livre));
 
 
 
         System.out.println("\nNOMBRE D'EMPRUNT PAR MOIS :");
-        int[] nbrEmpruntParMois = serviceEmpruntDocuments.getNbrEmpruntParMois();
+        Long[] nbrEmpruntParMois = serviceEmpruntDocuments.getNbrEmpruntParMois();
         for (int i = 0; i < nbrEmpruntParMois.length; i++) {
             System.out.println(new DateFormatSymbols().getMonths()[i] + "  " + nbrEmpruntParMois[i]);
         }
-        System.out.println();*/
+        System.out.println();
+
+
+
+        var clientEmprunt = serviceEmpruntDocuments.getClientEmprunt(client.getId());
+        serviceEmpruntDocuments.removeEmpruntDocuments(clientEmprunt.get(0));
+        System.out.println(clientEmprunt.get(0));
+
+
+        var client4 = serviceClient.getClient(client.getId());
+        serviceClient.removeClient(client);
+        System.out.println(client4);
 
 
 

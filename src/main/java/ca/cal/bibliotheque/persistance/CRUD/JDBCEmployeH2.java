@@ -1,12 +1,5 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.Employe;
-import ca.cal.bibliotheque.model.Fonction;
-import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
-import ca.cal.bibliotheque.persistance.DB.JDBCException;
-
-import java.sql.*;
-
 public class JDBCEmployeH2 implements JDBCEmploye {
     /*public void enregistrer(Employe employe) {
         JDBCBibliotheque.enregistrer("INSERT INTO EMPLOYE VALUES (" +

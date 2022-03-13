@@ -4,7 +4,6 @@ import org.h2.jdbc.JdbcSQLSyntaxErrorException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBCCreateDB {
@@ -24,19 +23,19 @@ public class JDBCCreateDB {
             conn.close();
         } catch(JdbcSQLSyntaxErrorException e) {
             // Database already exists
-            JDBCException.handleException(e);
-        } catch(SQLException se) {
+            ExceptionSQL.handleException(e);
+        } catch(java.sql.SQLException se) {
             //Handle errors for JDBC
-            JDBCException.handleException(se);
+            ExceptionSQL.handleException(se);
         } catch(Exception e) {
             //Handle errors for Class.forName
-            JDBCException.handleException(e);
+            ExceptionSQL.handleException(e);
         } finally {
             //finally, block used to close resources
             try {
                 if(conn!=null) conn.close();
-            } catch(SQLException se){
-                JDBCException.handleException(se);
+            } catch(java.sql.SQLException se){
+                ExceptionSQL.handleException(se);
             } //end finally try
         } //end try
         System.out.println("Goodbye!");
@@ -63,18 +62,18 @@ public class JDBCCreateDB {
             stmt.close();
         } catch(JdbcSQLSyntaxErrorException e) {
             // Database already exists
-            JDBCException.handleException(e);
-        } catch(SQLException se) {
+            ExceptionSQL.handleException(e);
+        } catch(java.sql.SQLException se) {
             //Handle errors for JDBC
-            JDBCException.handleException(se);
+            ExceptionSQL.handleException(se);
         } catch(Exception e) {
             //Handle errors for Class.forName
-            JDBCException.handleException(e);
+            ExceptionSQL.handleException(e);
         } finally {
             //finally, block used to close resources
             try{
                 if(stmt!=null) stmt.close();
-            } catch(SQLException se2) {
+            } catch(java.sql.SQLException se2) {
             } // nothing we can do
         } //end try
     }

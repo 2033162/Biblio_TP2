@@ -1,14 +1,5 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.Documents;
-import ca.cal.bibliotheque.model.EtatDocument;
-import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
-import ca.cal.bibliotheque.persistance.DB.JDBCException;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
 public class JDBCDocumentsH2 implements JDBCDocuments {
 
     /*public void enregistrer(Documents documents) {
