@@ -13,12 +13,14 @@ public class MainBibliotheque {
 
     public static void main(String[] args) throws ParseException {
 
+        //Services
         ServiceDocument serviceDocument = new ServiceDocument(new DocumentsDaoJPAH2());
         ServiceEmploye serviceEmploye = new ServiceEmploye(new EmployeDaoJPAH2());
         ServiceClient serviceClient = new ServiceClient(new ClientsDaoJPAH2());
         ServiceReservation serviceReservation = new ServiceReservation(new ReservationDaoJPAh2());
         ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments(new EmpruntDocumentsDaoJPAH2());
 
+        System.out.println("\nCRUD - CD");
         var cd = new CD(EtatDocument.DISPONIBLE,
                 Documents.C_CD,
                 "harry potter",
@@ -44,6 +46,8 @@ public class MainBibliotheque {
 
 
 
+
+        System.out.println("\nCRUD - DVD");
         var dvd = new DVD(
                 EtatDocument.ENDOMMAGE,
                 Documents.C_DVD,
@@ -69,6 +73,9 @@ public class MainBibliotheque {
 
 
 
+
+
+        System.out.println("\nCRUD - Livre");
         var livre = new Livre(
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
@@ -93,6 +100,8 @@ public class MainBibliotheque {
 
 
 
+
+        System.out.println("\nCRUD - Employe");
         var employe = new Employe(
                 "bernadette",
                 "carmier",
@@ -112,6 +121,7 @@ public class MainBibliotheque {
 
 
 
+        System.out.println("\nCRUD - Client");
         var client = new Clients(
                 "John",
                 "Smith",
@@ -131,6 +141,12 @@ public class MainBibliotheque {
         var client3 = serviceClient.getClient(client.getId());
         System.out.println(client3);
 
+        //Delete du client à la fin des opérations
+
+
+
+
+        System.out.println("\nCRUD - Reservation");
         livre = new Livre(
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
@@ -163,6 +179,8 @@ public class MainBibliotheque {
 
 
 
+
+        System.out.println("\nCRUD - EmpruntDocuments");
         dvd = new DVD(
                 EtatDocument.ENDOMMAGE,
                 Documents.C_DVD,
@@ -213,6 +231,7 @@ public class MainBibliotheque {
 
 
 
+        System.out.println("\nFaire un emprunt");
         System.out.println(serviceEmpruntDocuments.faireEmprunt(client, livre));
 
 
@@ -226,11 +245,15 @@ public class MainBibliotheque {
 
 
 
+        System.out.println("\nDelete empruntDocument");
         var clientEmprunt = serviceEmpruntDocuments.getClientEmprunt(client.getId());
         serviceEmpruntDocuments.removeEmpruntDocuments(clientEmprunt.get(0));
         System.out.println(clientEmprunt.get(0));
 
 
+
+
+        System.out.println("\nDelete client");
         var client4 = serviceClient.getClient(client.getId());
         serviceClient.removeClient(client);
         System.out.println(client4);

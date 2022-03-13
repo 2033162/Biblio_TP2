@@ -139,6 +139,8 @@ public class EmpruntDocumentsDaoJPAH2 implements EmpruntDocumentsDao {
                     clients,
                     documents);
             createEmpruntDocuments(empruntDocument);
+            var e = getEmpruntDocuments(empruntDocument.getId());
+            message = e.toString();
         }
         em.close();
         return message;
