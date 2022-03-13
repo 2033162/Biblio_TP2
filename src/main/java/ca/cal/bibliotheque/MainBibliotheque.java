@@ -44,6 +44,13 @@ public class MainBibliotheque {
         var cd2 = serviceDocument.getCD(cd.getId());
         System.out.println(cd2);
 
+        cd.setGenreMusique("jazz");
+        serviceDocument.updateCD(cd);
+        var cd3 = serviceDocument.getCD(cd.getId());
+        System.out.println(cd3);
+
+
+
         var dvd = new DVD(
                 EtatDocument.ENDOMMAGE,
                 Documents.C_DVD,
@@ -58,6 +65,13 @@ public class MainBibliotheque {
         var dvd2 = serviceDocument.getDVD(dvd.getId());
         System.out.println(dvd2);
 
+        dvd.setEtatDocument(EtatDocument.DISPONIBLE);
+        serviceDocument.updateDVD(dvd);
+        var dvd3 = serviceDocument.getDVD(dvd.getId());
+        System.out.println(dvd3);
+
+
+
         var livre = new Livre(
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
@@ -70,6 +84,13 @@ public class MainBibliotheque {
         serviceDocument.createLivre(livre);
         var livre2 = serviceDocument.getLivre(livre.getId());
         System.out.println(livre2);
+
+        livre.setNbrPages(900);
+        serviceDocument.updateLivre(livre);
+        var livre3 = serviceDocument.getLivre(livre.getId());
+        System.out.println(livre3);
+
+
 
         var employe = new Employe(
                 "bernadette",

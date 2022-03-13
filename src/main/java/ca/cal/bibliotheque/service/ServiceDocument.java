@@ -25,6 +25,18 @@ public class ServiceDocument {
         return dao.createLivre(livre);
     }
 
+    public void updateCD(CD CD) {
+        dao.updateCD(CD);
+    }
+
+    public void updateDVD(DVD DVD) {
+        dao.updateDVD(DVD);
+    }
+
+    public void updateLivre(Livre livre) {
+        dao.updateLivre(livre);
+    }
+
     public CD getCD(long cdID) {
         return dao.getCD(cdID);
     }
