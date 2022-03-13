@@ -24,6 +24,10 @@ public class ServiceEmploye {
         dao.updateEmploye(employe);
     }
 
+    public void removeEmploye(Employe employe) {
+        dao.removeEmploye(employe);
+    }
+
     public Employe getEmploye(long employeID) {
         return dao.getEmploye(employeID);
     }

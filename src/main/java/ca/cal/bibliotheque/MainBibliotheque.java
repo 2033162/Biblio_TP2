@@ -105,6 +105,10 @@ public class MainBibliotheque {
         var employe3 = serviceEmploye.getEmploye(employe.getId());
         System.out.println(employe3);
 
+        var employe4 = serviceEmploye.getEmploye(employe.getId());
+        serviceEmploye.removeEmploye(employe);
+        System.out.println(employe4);
+
 
 
         var client = new Clients(
