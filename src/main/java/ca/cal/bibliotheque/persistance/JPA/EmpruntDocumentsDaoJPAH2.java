@@ -44,6 +44,7 @@ public class EmpruntDocumentsDaoJPAH2 implements EmpruntDocumentsDao {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
+        empruntDocuments = em.merge(empruntDocuments);
         em.remove(empruntDocuments);
 
         em.getTransaction().commit();

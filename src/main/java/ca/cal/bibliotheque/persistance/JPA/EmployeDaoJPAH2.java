@@ -42,6 +42,7 @@ public class EmployeDaoJPAH2 implements EmployeDao {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
+        employe = em.merge(employe);
         em.remove(employe);
 
         em.getTransaction().commit();

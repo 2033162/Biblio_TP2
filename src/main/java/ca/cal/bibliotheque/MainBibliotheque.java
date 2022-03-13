@@ -9,6 +9,7 @@ import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.logging.Level;
 
 public class MainBibliotheque {
 
@@ -126,26 +127,34 @@ public class MainBibliotheque {
         var client = new Clients(
                 "John",
                 "Smith",
-                "daragon",
-                "montreal",
+                "Daragon",
+                "Montreal",
                 "H05C42",
                 "514-900-5698",
                 new SimpleDateFormat("dd/MM/yyyy").parse("20/02/2022"),
                 1);
+
         serviceClient.createClient(client);
         var client2 = serviceClient.getClient(client.getId());
         System.out.println(client2);
 
-        client.setRue("drolet");
+        client.setRue("Drolet");
         serviceClient.updateClient(client);
         var client3 = serviceClient.getClient(client.getId());
         System.out.println(client3);
 
-        var client4 = serviceClient.getClient(client.getId());
-        serviceClient.removeClient(client);
-        System.out.println(client4);
-
-
+        livre = new Livre(
+                EtatDocument.EMPRUNTE,
+                Documents.C_LIVRE,
+                "avengers",
+                "Josh whedon",
+                "marvel",
+                2020,
+                230,
+                GenreLivre.ROMAN);
+        serviceDocument.createLivre(livre);
+        livre2 = serviceDocument.getLivre(livre.getId());
+        System.out.println(livre2);
 
         var reservation = new Reservation(
                 new SimpleDateFormat("dd/MM/yyyy").parse("05/10/2000"),
@@ -166,6 +175,20 @@ public class MainBibliotheque {
 
 
 
+        dvd = new DVD(
+                EtatDocument.ENDOMMAGE,
+                Documents.C_DVD,
+                "bobby bob",
+                "lilo lee",
+                "edition bop",
+                2018,
+                44,
+                "drame");
+
+        serviceDocument.createDVD(dvd);
+        dvd2 = serviceDocument.getDVD(dvd.getId());
+        System.out.println(dvd2);
+
         var empruntDocuments = new EmpruntDocuments(
                 new SimpleDateFormat("dd/MM/yyyy").parse("15/03/2018"),
                 new SimpleDateFormat("dd/MM/yyyy").parse("04/01/2022"),
@@ -185,6 +208,10 @@ public class MainBibliotheque {
         serviceEmpruntDocuments.removeEmpruntDocuments(empruntDocuments);
         System.out.println(empruntDocuments4);
 
+
+        var client4 = serviceClient.getClient(client.getId());
+        serviceClient.removeClient(client);
+        System.out.println(client4);
 
 
         /*var idClient = 1L;

@@ -36,6 +36,7 @@ public class DocumentsDaoJPAH2 implements DocumentsDao {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
+        t = em.merge(t);
         em.remove(t);
 
         em.getTransaction().commit();

@@ -13,36 +13,36 @@ public class ServiceDocument {
         this.dao = dao;
     }
 
-    public long createCD(CD CD) {
-        return dao.createCD(CD);
+    public long createCD(CD cd) {
+        return dao.createCD(cd);
     }
 
-    public long createDVD(DVD DVD) {
-        return dao.createDVD(DVD);
+    public long createDVD(DVD dvd) {
+        return dao.createDVD(dvd);
     }
 
     public long createLivre(Livre livre) {
         return dao.createLivre(livre);
     }
 
-    public void updateCD(CD CD) {
-        dao.updateCD(CD);
+    public void updateCD(CD cd) {
+        dao.updateCD(cd);
     }
 
-    public void updateDVD(DVD DVD) {
-        dao.updateDVD(DVD);
+    public void updateDVD(DVD dvd) {
+        dao.updateDVD(dvd);
     }
 
     public void updateLivre(Livre livre) {
         dao.updateLivre(livre);
     }
 
-    public void removeCD(CD CD) {
-        dao.removeCD(CD);
+    public void removeCD(CD cd) {
+        dao.removeCD(cd);
     }
 
-    public void removeDVD(DVD DVD) {
-        dao.removeDVD(DVD);
+    public void removeDVD(DVD dvd) {
+        dao.removeDVD(dvd);
     }
 
     public void removeLivre(Livre livre) {

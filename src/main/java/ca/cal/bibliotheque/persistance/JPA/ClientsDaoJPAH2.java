@@ -43,6 +43,7 @@ public class ClientsDaoJPAH2 implements ClientsDao {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
+        clients = em.merge(clients);
         em.remove(clients);
 
         em.getTransaction().commit();
